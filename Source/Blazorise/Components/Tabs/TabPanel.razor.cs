@@ -11,7 +11,7 @@ namespace Blazorise
     /// <summary>
     /// A container for each <see cref="Tab"/> inside of <see cref="Tabs"/> component.
     /// </summary>
-    public partial class TabPanel : BaseComponent, IDisposable
+    public partial class TabPanel : BaseComponent, IAnimatedComponent, IDisposable
     {
         #region Members
 
@@ -30,6 +30,21 @@ namespace Blazorise
         /// </summary>
         private TabsContentState parentTabsContentState;
 
+        /// <summary>
+        /// Manages the visibility states.
+        /// </summary>
+        private CloseableAdapter closeableAdapter;
+
+        #endregion
+        #region constructors
+
+        /// <inheritdoc/>
+        public TabPanel()
+        {
+            closeableAdapter = new( this );
+        }
+
+
         #endregion
 
         #region Methods
@@ -39,6 +54,7 @@ namespace Blazorise
         {
             builder.Append( ClassProvider.TabPanel() );
             builder.Append( ClassProvider.TabPanelActive( Active ) );
+            builder.Append( ClassProvider.Fade(  ) );
 
             base.BuildClasses( builder );
         }
@@ -51,6 +67,28 @@ namespace Blazorise
             ParentTabsContent?.NotifyTabPanelInitialized( Name );
 
             base.OnInitialized();
+        }
+
+        /// inheritdoc
+        public Task BeginAnimation( bool visible )
+        {
+            if ( visible )
+                DirtyStyles();
+            else
+                DirtyClasses();
+
+            return InvokeAsync( StateHasChanged );
+        }
+
+        /// inheritdoc
+        public Task EndAnimation( bool visible )
+        {
+            if ( visible )
+                DirtyClasses();
+            else
+                DirtyStyles();
+
+            return InvokeAsync( StateHasChanged );
         }
 
         /// <inheritdoc/>
@@ -72,6 +110,16 @@ namespace Blazorise
             }
 
             base.Dispose( disposing );
+        }
+
+        public Task Show()
+        {
+            return Task.CompletedTask;
+        }
+
+        public Task Hide()
+        {
+            return Task.CompletedTask;
         }
 
         #endregion
@@ -143,6 +191,11 @@ namespace Blazorise
         /// Specifies the content to be rendered inside this <see cref="TabPanel"/>.
         /// </summary>
         [Parameter] public RenderFragment ChildContent { get; set; }
+        /// <inheritdoc/>
+        [Parameter] public bool Animated { get; set; } = true;
+
+        /// <inheritdoc/>
+        [Parameter] public int AnimationDuration { get; set; } = 150;
 
         #endregion
     }

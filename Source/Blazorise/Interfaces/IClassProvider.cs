@@ -755,6 +755,7 @@ namespace Blazorise
 
         string Modal();
 
+
         string ModalFade();
 
         string ModalFade( bool animation );
