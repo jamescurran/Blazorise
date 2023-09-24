@@ -1,10 +1,14 @@
 ﻿@page "/docs/components/validation"
 
-<Seo Canonical="/docs/components/validation" Title="Blazorise Validation Component" Description="Validation components are used to provide simple form validation for Blazorise input components." />
+<Seo Canonical="/docs/components/validation" Title="Blazorise Validation Component" Description="Learn to use and work with the Blazorise Validation components, which are used to provide simple form validation for Blazorise input components." />
 
-<DocsPageTitle>
-    Validation component
+<DocsPageTitle Path="Components/Validation">
+    Blazorise Validation component
 </DocsPageTitle>
+
+<DocsPageLead>
+    The <Code>Validation</Code> component allows you to verify your data, helping you find and correct errors.
+</DocsPageLead>
 
 <DocsPageParagraph>
     Validation components are used to provide simple form validation for Blazorise input components.
@@ -269,7 +273,11 @@
     </TableBody>
 </Table>
 
-<Heading Size="HeadingSize.Is2">
+<DocsPageSubtitle>
+    API
+</DocsPageSubtitle>
+
+<Heading Size="HeadingSize.Is3">
     Attributes
 </Heading>
 
@@ -295,6 +303,9 @@
     <DocsAttributesItem Name="ValidateOnLoad" Type="bool" Default="false">
         Run validation only when user starts entering values.
     </DocsAttributesItem>
+    <DocsAttributesItem Name="HandlerType" Type="Type" Default="null">
+        Defines the default handler type that will be used by the validation, unless it is overriden by <Code>Validation.HandlerType</Code> property.
+    </DocsAttributesItem>
 </DocsAttributes>
 
 <DocsAttributes Title="Validation">
@@ -315,6 +326,9 @@
     </DocsAttributesItem>
     <DocsAttributesItem Name="MessageLocalizer" Type="Func<ValidationMessageLocalizerEventArgs, IEnumerable<string>>" Default="null">
         Custom handler used to override error messages in case the localization is needed.
+    </DocsAttributesItem>
+    <DocsAttributesItem Name="HandlerType" Type="Type" Default="null">
+        Forces the custom validation handler to be used while validating the values.
     </DocsAttributesItem>
 </DocsAttributes>
 

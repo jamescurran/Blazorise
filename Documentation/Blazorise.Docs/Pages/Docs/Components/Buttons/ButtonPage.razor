@@ -1,13 +1,17 @@
 ﻿@page "/docs/components/button"
 
-<Seo Canonical="/docs/components/button" Title="Blazorise Button component" Description="Use Blazorise Button component for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, states, and more." />
+<Seo Canonical="/docs/components/button" Title="Blazorise Button component" Description="Learn to use and work with the Blazorise Button component for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, states, and more." />
 
-<DocsPageTitle>
-    Buttons
+<DocsPageTitle Path="Components/Button">
+    Blazorise Button component
 </DocsPageTitle>
 
+<DocsPageLead>
+    Use Blazorise custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.
+</DocsPageLead>
+
 <DocsPageParagraph>
-    The Button component allows users to perform actions. It comes in several different style variants, and supports icons in addition to text labels.
+    The <Code>Button</Code> component replaces the standard html button with a multitude of options. Any color helper class can be used to alter the background or text color. Try out an interactive examples on how Blazorise buttons work.
 </DocsPageParagraph>
 
 <DocsPageSubtitle>
@@ -17,6 +21,10 @@
 <DocsPageParagraph>
     Blazorise <Code Tag>Button</Code> component generates either a <Code Tag>button</Code> element, or <Code Tag>a</Code> element with the styling of a button.
 </DocsPageParagraph>
+
+<DocsPageSubtitle>
+    Examples
+</DocsPageSubtitle>
 
 <DocsPageSection>
     <DocsPageSectionHeader Title="Basic button">
@@ -29,7 +37,7 @@
 </DocsPageSection>
 
 <DocsPageSection>
-    <DocsPageSectionHeader Title="How to use">
+    <DocsPageSectionHeader Title="Clicked event">
         To use button you just handle a button <Code>Clicked</Code> event.
     </DocsPageSectionHeader>
     <DocsPageSectionContent Outlined>
@@ -39,7 +47,7 @@
 </DocsPageSection>
 
 <DocsPageSection>
-    <DocsPageSectionHeader Title="Colors">
+    <DocsPageSectionHeader Title="Colors variants">
         The following variants can be used to distinguish between actions of different importance in the UI:
     </DocsPageSectionHeader>
     <DocsPageSectionContent Outlined>
@@ -49,23 +57,23 @@
 </DocsPageSection>
 
 <DocsPageSection>
-    <DocsPageSectionHeader Title="Size Variants">
-        The following size variants are available for Button instances whose size needs to be different from the default:
-    </DocsPageSectionHeader>
-    <DocsPageSectionContent Outlined>
-        <SizeButtonsExample />
-    </DocsPageSectionContent>
-    <DocsPageSectionSource Code="SizeButtonsExample" />
-</DocsPageSection>
-
-<DocsPageSection>
-    <DocsPageSectionHeader Title="Outline">
+    <DocsPageSectionHeader Title="Outline variants">
         To define button color with a borders use an <Code>Outline</Code> attribute.
     </DocsPageSectionHeader>
     <DocsPageSectionContent Outlined>
         <OutlineButtonExample />
     </DocsPageSectionContent>
     <DocsPageSectionSource Code="OutlineButtonExample" />
+</DocsPageSection>
+
+<DocsPageSection>
+    <DocsPageSectionHeader Title="Sizes">
+        The following size variants are available for Button instances whose size needs to be different from the default:
+    </DocsPageSectionHeader>
+    <DocsPageSectionContent Outlined>
+        <SizeButtonsExample />
+    </DocsPageSectionContent>
+    <DocsPageSectionSource Code="SizeButtonsExample" />
 </DocsPageSection>
 
 <DocsPageSection>
@@ -240,8 +248,12 @@
 </DocsPageSection>
 
 <DocsPageSubtitle>
-    Attributes
+    API
 </DocsPageSubtitle>
+
+<Heading Size="HeadingSize.Is3">
+    Attributes
+</Heading>
 
 <DocsAttributes>
     <DocsAttributesItem Name="Color" Type="Color" Default="Default">

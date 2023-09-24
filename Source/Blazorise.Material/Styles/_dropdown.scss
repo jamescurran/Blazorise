@@ -1,4 +1,22 @@
-﻿.dropdown-toggle.dropdown-toggle-hidden::after {
+﻿.table-fixed-header .table thead tr th.dropdown-table-fixed-header-visible {
+    z-index: 11;
+}
+
+.dropdown-menu-position-strategy {
+    width: max-content;
+    top: 0;
+    left: 0;
+}
+
+.dropdown-menu-position-strategy-absolute {
+    position: absolute;
+}
+
+.dropdown-menu-position-strategy-fixed {
+    position: fixed;
+}
+
+.dropdown-toggle.dropdown-toggle-hidden::after {
     content: none !important;
 }
 
@@ -37,9 +55,20 @@
     background-clip: border-box;
     background-color: #fff;
     box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.20);
+
+    .dropdown-item.focus {
+        background-color: rgba(0,0,0,.12);
+        outline: 0;
+        color: rgba(0,0,0,.87) !important;
+        text-decoration: none;
+    }
 }
 
 .b-is-autocomplete.b-is-autocomplete-multipleselection {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 0.25rem;
     max-width: 100%;
     width: 100%;
     cursor: text;
@@ -50,6 +79,13 @@
         background-color: transparent;
         max-width: inherit;
         width: auto;
+        flex-grow: 1;
+    }
+
+    > .badge {
+        margin-bottom: 0.25rem;
+        line-height: 1.5;
+        flex-grow: initial;
     }
 }
 
@@ -60,6 +96,10 @@
 
 .dropdown {
     position: relative;
+
+    &.dropdown-disabled.b-is-autocomplete {
+        background-color: var(--b-theme-light, #e9ecef);
+    }
 
     > .dropdown-menu:not([x-placement]) {
         > .dropdown:not(.dropup, .dropleft, .dropright) {
@@ -85,7 +125,7 @@
 
     &.dropup {
         > .dropdown-menu:not([x-placement]) {
-            bottom: 100%;
+            bottom: auto;
             top: auto;
             left: auto;
             right: auto;

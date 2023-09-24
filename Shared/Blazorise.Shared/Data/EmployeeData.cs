@@ -8,29 +8,58 @@ using Blazorise.Shared.Models;
 using Microsoft.Extensions.Caching.Memory;
 #endregion
 
-namespace Blazorise.Shared.Data
+namespace Blazorise.Shared.Data;
+
+public class Gender
 {
-    public class EmployeeData
+    public string Code { get; set; }
+    public string Description { get; set; }
+}
+
+public class EmployeeData
+{
+    private readonly IMemoryCache cache;
+    private readonly string employeesCacheKey = "cache_employees";
+
+    /// <summary>
+    /// Simplified code to get & cache data in memory...
+    /// </summary>
+    public EmployeeData( IMemoryCache memoryCache )
     {
-        private readonly IMemoryCache cache;
-        private readonly string employeesCacheKey = "cache_employees";
+        cache = memoryCache;
+    }
 
-        /// <summary>
-        /// Simplified code to get & cache data in memory...
-        /// </summary>
-        public EmployeeData( IMemoryCache memoryCache )
+    public static IEnumerable<Gender> Genders = new List<Gender>()
+    {
+        new()
         {
-            cache = memoryCache;
-        }
-
-        public Task<List<Employee>> GetDataAsync()
-            => cache.GetOrCreateAsync( employeesCacheKey, LoadData );
-
-        private Task<List<Employee>> LoadData( ICacheEntry cacheEntry )
+            Code = null,
+            Description = string.Empty
+        },
+        new()
         {
-            Assembly assembly = typeof( EmployeeData ).Assembly;
-            using var stream = assembly.GetManifestResourceStream( "Blazorise.Shared.Resources.EmployeeData.json" );
-            return Task.FromResult( JsonSerializer.Deserialize<List<Employee>>( new StreamReader( stream ).ReadToEnd() ) );
+            Code = "M",
+            Description = "Male"
+        },
+        new()
+        {
+            Code = "F",
+            Description = "Female"
+        },
+        new()
+        {
+            Code = "D",
+            Description = "Diverse"
         }
+    };
+
+    public Task<List<Employee>> GetDataAsync()
+        => cache.GetOrCreateAsync( employeesCacheKey, LoadData );
+
+    private Task<List<Employee>> LoadData( ICacheEntry cacheEntry )
+    {
+        Assembly assembly = typeof( EmployeeData ).Assembly;
+        using var stream = assembly.GetManifestResourceStream( "Blazorise.Shared.Resources.EmployeeData.json" );
+        return Task.FromResult( JsonSerializer.Deserialize<List<Employee>>( new StreamReader( stream ).ReadToEnd() ) );
     }
 }

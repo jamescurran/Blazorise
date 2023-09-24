@@ -1,10 +1,14 @@
 ﻿@page "/docs/components/dragdrop"
 
-<Seo Canonical="/docs/components/dropzone" Title="Blazorise DropZone system" Description="The DropZone component allows you to easily drag and drop any component or HTML element." />
+<Seo Canonical="/docs/components/dragdrop" Title="Blazorise DropZone system" Description="Learn to use and work with the Blazorise DropZone component which allows you to easily drag and drop any component or HTML element." />
 
-<DocsPageTitle>
-    Drag & Drop
+<DocsPageTitle Path="Components/Drop Zone">
+    Blazorise Drag & Drop component
 </DocsPageTitle>
+
+<DocsPageLead>
+    Quickly drag and drop elements between the containers.
+</DocsPageLead>
 
 <DocsPageParagraph>
     The Drag & Drop is comprised of <Code>DropContainer</Code> and <Code>DropZone</Code> components. The <Code>DropContainer</Code> is used as a container for all items that are being dragged,
@@ -59,8 +63,28 @@
 </DocsPageSection>
 
 <DocsPageSubtitle>
-    Attributes
+    API
 </DocsPageSubtitle>
+
+<Heading Size="HeadingSize.Is3">
+    Methods
+</Heading>
+
+<DocsMethods Title="DropContainer">
+    <DocsMethodsItem Name="Refresh()" ReturnType="void">
+        Request the refresh of the drag container.
+    </DocsMethodsItem>
+    <DocsMethodsItem Name="GetTransactionItem()" ReturnType="TItem">
+        Gets the item that is currently in the transaction.
+    </DocsMethodsItem>
+    <DocsMethodsItem Name="GetTransactionIndex()" ReturnType="int">
+        Gets the current transaction index.
+    </DocsMethodsItem>
+</DocsMethods>
+
+<Heading Size="HeadingSize.Is3">
+    Attributes
+</Heading>
 
 <DocsAttributes Title="DropContainer">
     <DocsAttributesItem Name="TItem" Type="generic">

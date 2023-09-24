@@ -1,23 +1,23 @@
 ﻿using System.Text.Json.Serialization;
+using Blazorise.Utilities.JsonConverters;
 
-namespace Blazorise.Video
+namespace Blazorise.Video;
+
+/// <summary>
+/// Defines the media source type.
+/// </summary>
+[JsonConverter( typeof( CamelCaseEnumJsonConverter ) )]
+public enum VideoSourceType
 {
     /// <summary>
-    /// Defines the media source type.
+    /// Defines the video media.
     /// </summary>
-    [JsonConverter( typeof( System.Text.Json.Serialization.JsonStringEnumConverter ) )]
-    public enum VideoSourceType
-    {
-        /// <summary>
-        /// Defines the video media.
-        /// </summary>
-        [JsonPropertyName( "video" )]
-        Video,
+    [JsonPropertyName( "video" )]
+    Video,
 
-        /// <summary>
-        /// Defines the audio media.
-        /// </summary>
-        [JsonPropertyName( "audio" )]
-        Audio,
-    }
+    /// <summary>
+    /// Defines the audio media.
+    /// </summary>
+    [JsonPropertyName( "audio" )]
+    Audio,
 }

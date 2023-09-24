@@ -1,14 +1,20 @@
 ﻿@page "/docs/extensions/chart"
 
-<Seo Canonical="/docs/extensions/chart" Title="Blazorise Chart" Description="Learn how to use Blazorise chart extension components." />
+<Seo Canonical="/docs/extensions/chart" Title="Blazorise Chart component" Description="Learn to use and work with the Blazorise Chart extension components, which is used to generate advanced graphs and visualizations." />
 
-<DocsPageTitle>
-    Chart
+<DocsPageTitle Path="Extensions/Chart">
+    Blazorise Chart component
 </DocsPageTitle>
+
+<DocsPageLead>
+    Simple yet flexible charting for designers & developers.
+</DocsPageLead>
 
 <DocsPageParagraph>
     The chart extension is defined of several different chart components. Each of the chart type have it’s own dataset and option settings.
+</DocsPageParagraph>
 
+<DocsPageParagraph>
     Supported charts types are:
 </DocsPageParagraph>
 
@@ -16,7 +22,6 @@
     <UnorderedListItem><Code>Chart</Code> default chart components, should be used only for testing(see warning)</UnorderedListItem>
     <UnorderedListItem><Code>LineChart</Code></UnorderedListItem>
     <UnorderedListItem><Code>BarChart</Code></UnorderedListItem>
-    <UnorderedListItem><Code>HorizontalBarChart</Code></UnorderedListItem>
     <UnorderedListItem><Code>PieChart</Code></UnorderedListItem>
     <UnorderedListItem><Code>PolarAreaChart</Code></UnorderedListItem>
     <UnorderedListItem><Code>DoughnutChart</Code></UnorderedListItem>
@@ -43,7 +48,7 @@
 
 <DocsPageSection>
     <DocsPageSectionHeader Title="Static Files">
-        Add <Code>ChartsJS</Code> and <Code>charts.js</Code> to your <Code>index.html</Code> or <Code>_Host.cshtml</Code> file, depending if you’re using a Blazor WebAssembly or Blazor Server side project.
+        Add <Code>ChartsJS</Code> and <Code>charts.js</Code> to your <Code>index.html</Code> or <Code>_Layout.cshtml</Code> / <Code>_Host.cshtml</Code> file, depending if you’re using a Blazor WebAssembly or Blazor Server side project.
     </DocsPageSectionHeader>
     <DocsPageSectionSource Code="ChartResourcesExample" />
 </DocsPageSection>
@@ -93,9 +98,23 @@
     <DocsPageSectionSource Code="ChartComplexDataExample" />
 </DocsPageSection>
 
+<DocsPageSection>
+    <DocsPageSectionHeader Title="Horizontal Bar Chart">
+        By adjusting the <Code>BarChartOptions</Code> and changing the <Code>IndexAxis</Code> you can make the horizontal Bar Chart.
+    </DocsPageSectionHeader>
+    <DocsPageSectionContent Outlined FullWidth>
+        <ChartHorizontalBarExample />
+    </DocsPageSectionContent>
+    <DocsPageSectionSource Code="ChartHorizontalBarExample" />
+</DocsPageSection>
+
 <DocsPageSubtitle>
-    Attributes
+    API
 </DocsPageSubtitle>
+
+<Heading Size="HeadingSize.Is3">
+    Attributes
+</Heading>
 
 <DocsAttributes>
     <DocsAttributesItem Name="Type" Type="ChartType" Default="Line">

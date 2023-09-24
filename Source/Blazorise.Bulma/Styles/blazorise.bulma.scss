@@ -4,6 +4,7 @@
 @import "animations";
 
 @import "utilities";
+@import "grid";
 
 @import "bar";
 @import "button";
@@ -18,9 +19,11 @@
 @import "layout";
 @import "list";
 @import "modal";
+@import "_offcanvas";
 @import "pagination";
 @import "progress";
 @import "rating";
+@import "spacing";
 @import "steps";
 @import "switch";
 @import "table";
